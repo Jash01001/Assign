@@ -1,0 +1,21 @@
+name: Update Taktile Code Nodes
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - run: pip install requests
+
+      - run: python update_code_nodes.py
+        env:
+          TAKTILE_API_KEY: ${{ secrets.TAKTILE_API_KEY }}
