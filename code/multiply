@@ -1,0 +1,6 @@
+def multiply(data):
+    data["sum"] = data["a"] * data["b"]
+    return data
+
+if __env:  # Taktile environment
+    data = multiply(data)
